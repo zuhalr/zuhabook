@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- zuhalbook.cleaningservice inherit tree view -->
+    <record id="zuhalbook_cleaningservice_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Cleaning Service</field>
+        <field name="model">zuhalbook.cleaningservice</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="id_cln" />
+            </xpath>          
+        </field>
+    </record>
+
+    <!-- zuhalbook.cleaningservice inherit form view -->
+    <record id="zuhalbook_cleaningservice_view_form_inherit" model="ir.ui.view">
+        <field name="name">Form Cleaning Service</field>
+        <field name="model">zuhalbook.cleaningservice</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[2]" position="after">
+                <group name="id" string="ID">
+                    <field name="id_cln" />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='alamat']" position="attributes">
+               <attribute name="string">Address</attribute>
+            </xpath>          
+        </field> 
+    </record>
+
+    <!-- zuhalbook.cleaningservice action window -->
+    <record id="zuhalbook_cleaningservice_action" model="ir.actions.act_window">
+        <field name="name">Cleaning Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.cleaningservice</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="zuhalbook_cleaningservice_menu_act"
+        name="cleaning Service"
+        parent="zuhalbook_pegawai_menu_categ"
+        action="zuhalbook_cleaningservice_action"
+        sequence="10"/>
+
+</odoo>

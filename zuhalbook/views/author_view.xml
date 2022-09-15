@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- zuhalbook.author inherit tree view -->
+    <record id="zuhalbook_author_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Author</field>
+        <field name="model">zuhalbook.author</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="id_author" />
+            </xpath>
+            <xpath expr="//field[@name='tgl_lahir']" position="after">
+                <field name="buku_id" />
+            </xpath>     
+        </field>
+    </record>
+
+    <!-- zuhalbook.author inherit form view -->
+    <record id="zuhalbook_author_view_form_inherit" model="ir.ui.view">
+        <field name="name">Form Author</field>
+        <field name="model">zuhalbook.author</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[2]" position="after">
+                <group name="id" string="ID">
+                    <field name="id_author" />
+                </group>
+            </xpath>
+            <xpath expr="//form//sheet//group[3]" position="after">
+                <group name="id" string="Buku">
+                    <field name="buku_id" />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='alamat']" position="attributes">
+               <attribute name="string">Address</attribute>
+            </xpath>          
+        </field> 
+    </record>
+
+    <!-- zuhalbook.author action window -->
+    <record id="zuhalbook_author_action" model="ir.actions.act_window">
+        <field name="name">Author</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.author</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+       
+    <menuitem
+        id="zuhalbook_author_menu_categ"
+        name="Author"
+        parent="zuhalbook_menu_root"
+        action="zuhalbook_author_action"
+        sequence="30"/>    
+
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- zuhalbook.konsumen inherit tree view -->
+    <record id="zuhalbook_konsumen_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar konsumen</field>
+        <field name="model">zuhalbook.konsumen</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="id_konsumen" />
+            </xpath>
+            <xpath expr="//field[@name='tgl_lahir']" position="after">
+                <field name="penjualan_ids" />
+            </xpath>
+            <xpath expr="//field[@name='tgl_lahir']" position="after">
+                <field name="peminjaman_ids" />
+            </xpath>      
+        </field>
+    </record>
+
+    <!-- zuhalbook.konsumen inherit form view -->
+    <record id="zuhalbook_konsumen_view_form_inherit" model="ir.ui.view">
+        <field name="name">Form konsumen</field>
+        <field name="model">zuhalbook.konsumen</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="zuhalbook_person_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[2]" position="after">
+                <group name="id" string="ID">
+                    <field name="id_konsumen" />
+                </group>
+            </xpath>
+            <xpath expr="//form//sheet//group[3]" position="after">
+                <group name="id" string="Buku">
+                    <field name="penjualan_ids" />
+                </group>
+            </xpath>
+            <xpath expr="//form//sheet//group[4]" position="after">
+                <group name="id" string="Buku">
+                    <field name="peminjaman_ids" />
+                </group>
+            </xpath>         
+        </field> 
+    </record>
+
+    <!-- zuhalbook.konsumen action window -->
+    <record id="zuhalbook_konsumen_action" model="ir.actions.act_window">
+        <field name="name">Konsumen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.konsumen</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+       
+    <menuitem
+        id="zuhalbook_konsumen_menu_categ"
+        name="Konsumen"
+        parent="zuhalbook_menu_root"
+        action="zuhalbook_konsumen_action"
+        sequence="30"/>    
+
+</odoo>

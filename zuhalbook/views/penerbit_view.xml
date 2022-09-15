@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- zuhalbook.penerbit tree view -->
+    <record id="zuhalbook_penerbit_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Penerbit</field>
+        <field name="model">zuhalbook.penerbit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name" />
+                <field name="alamat" />
+                <field name="no_telp" />
+                <field name="buku_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- zuhalbook.penerbit form view -->
+    <record id="zuhalbook_penerbit_view_form" model="ir.ui.view">
+        <field name="name">Form Penerbit</field>
+        <field name="model">zuhalbook.penerbit</field>
+        <field name="arch" type="xml">
+            <form string="penerbit">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name" />
+                        <field name="alamat" />
+                        <field name="no_telp" />
+                    </group>
+                    <group name="buku" string="Buku">
+                        <field name="buku_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- zuhalbook.penerbit action window -->
+    <record id="zuhalbook_penerbit_action" model="ir.actions.act_window">
+        <field name="name">Penerbit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.penerbit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="zuhalbook_penerbit_menu_categ" 
+        name="Penerbit" 
+        parent="zuhalbook_menu_root" 
+        action="zuhalbook_penerbit_action" 
+        sequence="40"/>    
+
+</odoo>

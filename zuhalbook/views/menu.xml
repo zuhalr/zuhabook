@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem
+        id="zuhalbook_menu_root"
+        name="Zuhal Book"
+        sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem
+        id="zuhalbook_buku_menu_categ"
+        name="Buku"
+        parent="zuhalbook_menu_root"
+        sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem
+        id="zuhalbook_pegawai_menu_categ"
+        name="Pegawai"
+        parent="zuhalbook_menu_root"
+        sequence="20"/>
+
+    <menuitem
+        id="zuhalbook_transaksi_menu_categ"
+        name="Transaksi"
+        parent="zuhalbook_menu_root"
+        sequence="50"/>    
+
+      
+</odoo>

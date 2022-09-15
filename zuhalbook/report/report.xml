@@ -1,0 +1,53 @@
+<odoo>
+    <!-- Report penerbit -->
+    <record id="report_zuhalbook_penerbit_xlsx" model="ir.actions.report">
+        <field name="name">Penerbit Excel</field>
+        <field name="model">zuhalbook.penerbit</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zuhalbook.report_penerbit_xlsx</field>
+        <field name="report_file">zuhalbook.report_penerbit_xlsx</field>
+        <field name="binding_model_id" ref="model_zuhalbook_penerbit"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_zuhalbook_buku_xlsx" model="ir.actions.report">
+        <field name="name">Buku Excel</field>
+        <field name="model">zuhalbook.buku</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zuhalbook.report_buku_xlsx</field>
+        <field name="report_file">zuhalbook.report_buku_xlsx</field>
+        <field name="binding_model_id" ref="model_zuhalbook_buku"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_zuhalbook_author_xlsx" model="ir.actions.report">
+        <field name="name">Author Excel</field>
+        <field name="model">zuhalbook.author</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zuhalbook.report_author_xlsx</field>
+        <field name="report_file">zuhalbook.report_author_xlsx</field>
+        <field name="binding_model_id" ref="model_zuhalbook_author"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_zuhalbook_genre_xlsx" model="ir.actions.report">
+        <field name="name">Genre Excel</field>
+        <field name="model">zuhalbook.genre</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zuhalbook.report_genre_xlsx</field>
+        <field name="report_file">zuhalbook.report_genre_xlsx</field>
+        <field name="binding_model_id" ref="model_zuhalbook_genre"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_zuhalbook_genre_xlsx" model="ir.actions.report">
+        <field name="name">Penjualan Excel</field>
+        <field name="model">zuhalbook.penjualan</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zuhalbook.report_penjualan_xlsx</field>
+        <field name="report_file">zuhalbook.report_penjualan_xlsx</field>
+        <field name="binding_model_id" ref="model_zuhalbook_penjualan"/>
+        <field name="binding_type">report</field>
+    </record>
+    
+</odoo>

@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zuhalbook_buku,access.zuhalbook.buku,model_zuhalbook_buku,,1,1,1,1
+access_zuhalbook_genre,access.zuhalbook.genre,model_zuhalbook_genre,,1,1,1,1
+access_zuhalbook_person,access.zuhalbook.person,model_zuhalbook_person,,1,1,1,1
+access_zuhalbook_kasir,access.zuhalbook.kasir,model_zuhalbook_kasir,,1,1,1,1
+access_zuhalbook_cleaningservice,access.zuhalbook.cleaningservice,model_zuhalbook_cleaningservice,,1,1,1,1
+access_zuhalbook_konsumen,access.zuhalbook.konsumen,model_zuhalbook_konsumen,,1,1,1,1
+access_zuhalbook_author,access.zuhalbook.author,model_zuhalbook_author,,1,1,1,1
+access_zuhalbook_konsumen,access.zuhalbook.konsumen,model_zuhalbook_konsumen,,1,1,1,1
+access_zuhalbook_penerbit,access.zuhalbook.penerbit,model_zuhalbook_penerbit,,1,1,1,1
+access_zuhalbook_penjualan,access.zuhalbook.penjualan,model_zuhalbook_penjualan,,1,1,1,1
+access_zuhalbook_detailpenjualan,access.zuhalbook.detailpenjualan,model_zuhalbook_detailpenjualan,,1,1,1,1
+access_zuhalbook_peminjaman,access.zuhalbook.peminjaman,model_zuhalbook_peminjaman,,1,1,1,1
+access_zuhalbook_detailpeminjaman,access.zuhalbook.detailpeminjaman,model_zuhalbook_detailpeminjaman,,1,1,1,1

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- zuhalbook.penjualan tree view -->
+    <record id="zuhalbook_penjualan_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Penjualan</field>
+        <field name="model">zuhalbook.penjualan</field>
+        <field name="arch" type="xml">
+            <tree decoration-warning="state == 'draft'" 
+                decoration-info="state == 'confirm'" 
+                decoration-success="state == 'done'" 
+                decoration-muted="state == 'cancelled'" >
+                <field name="name" />
+                <field name="konsumen_id" />
+                <field name="tgl_penjualan" />
+                <field name="total_bayar" />
+                <field name="total_keuntungan" />
+                <field name="state" 
+                        decoration-warning="state == 'draft'"  
+                        decoration-info="state == 'confirm'" 
+                        decoration-success="state == 'done'" 
+                         decoration-muted="state == 'cancelled'" 
+                    widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- zuhalbook.penjualan form view -->
+    <record id="zuhalbook_penjualan_view_form" model="ir.ui.view">
+        <field name="name">Form Penjualan</field>
+        <field name="model">zuhalbook.penjualan</field>
+        <field name="arch" type="xml">
+            <form string="Form Penjualan">
+                <header>
+                    <button name="action_draft" type="object" string="Kembali ke Draft" class="btn btn-warning" states="cancelled" confirm="Anda yakin untuk mengedit Quotation ini?" />
+                    <button name="action_confirm" type="object" string="Confirm" class="btn btn-primary" states="draft"  />
+                    <button name="action_done" type="object" string="Done" class="btn btn-success" states="confirm"  />
+                    <button name="action_cancelled" type="object" string="Cancel" class="btn btn-danger" states="confirm,done" confirm="Anda yakin untuk men-cancel Quotation ini?" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done" />
+                </header>
+                <sheet>
+                    <group name="Penjualan">
+                        <field name="name" attrs="{'readonly':[('state','!=', 'draft')]}" />
+                        <field name="konsumen_id" attrs="{'readonly':[('state','!=', 'draft')]}" />
+                        <field name="tgl_penjualan" attrs="{'readonly':[('state','!=', 'draft')]}" />
+                        <field name="total_bayar" attrs="{'readonly':[('state','!=', 'draft')]}" />
+                    </group>
+                    <group name="Daftar buku" string="Daftar buku">
+                        <field name="detailpenjualan_ids" attrs="{'readonly':[('state','!=', 'draft')]}" >
+                            <tree editable="bottom">
+                                <field name="buku_id"/>
+                                <field name="harga_satuan"/>
+                                <field name="qty"/>
+                                <field name="subtotal" sum="Total"/>
+                                <field name="keuntungan_satuan"/>
+                                <field name="keuntungan"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- zuhalbook.penjualan action window -->
+    <record id="zuhalbook_penjualan_action" model="ir.actions.act_window">
+        <field name="name">Penjualan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.penjualan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="penjualan_view_menu_act" 
+        name="Penjualan" 
+        parent="zuhalbook_transaksi_menu_categ" 
+        action="zuhalbook_penjualan_action" 
+        sequence="10"/>
+
+</odoo>

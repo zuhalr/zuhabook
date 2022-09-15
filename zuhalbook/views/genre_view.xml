@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="zuhalbook_genre_view_tree" model="ir.ui.view">
+        <field name="name">zuhalbook.genre.view.tree</field>
+        <field name="model">zuhalbook.genre</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="kode_genre"/>
+                <field name="kode_rak"/>
+                <field name="jml_item"/>
+                <!-- <field name="daftar"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- zuhalbook.genre form view -->
+    <record id="zuhalbook_genre_view_form" model="ir.ui.view">
+        <field name="name">zuhalbook.genre.view.form</field>
+        <field name="model">zuhalbook.genre</field>
+        <field name="arch" type="xml">
+            <form string="Kelompok Barang">
+                <sheet>
+                    <group name="Genre" string="Genre">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="kode_genre"/>
+                        <field name="jml_item" />
+                    </group>
+
+                    <group name="Rak" string="Posisi Barang">
+                        <field name="kode_rak"/>
+                        <field name="buku_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- zuhalbook.genre action window -->
+    <record id="zuhalbook_genre_action" model="ir.actions.act_window">
+        <field name="name">Genre</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zuhalbook.genre</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="zuhalbook_genre_menu_act"
+        name="Genre"
+        parent="zuhalbook_buku_menu_categ"
+        action="zuhalbook_genre_action"
+        sequence="10"/>
+
+</odoo>
